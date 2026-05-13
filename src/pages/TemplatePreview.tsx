@@ -14,7 +14,6 @@ export default function TemplatePreview() {
   const [preloadedFile, setPreloadedFile] = useState<File | null>(null);
   const [preloadedDataUrl, setPreloadedDataUrl] = useState<string | null>(null);
   
-  // Local personalization state
   const [cardName, setCardName] = useState(user?.name || '');
   const [cardPhoto] = useState(user?.profilePicture || '');
   const [cardBackground, setCardBackground] = useState('');
@@ -34,7 +33,6 @@ export default function TemplatePreview() {
   }, [user, template, navigate]);
 
   useEffect(() => {
-    // Reset preloaded state when any personalization changes
     setPreloadedFile(null);
     setPreloadedDataUrl(null);
 
@@ -130,7 +128,6 @@ export default function TemplatePreview() {
           <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '15%', background: '#2c2623', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <span style={{ color: '#fff', fontSize: '2rem', letterSpacing: '0.05em', fontWeight: '500' }}>{cardName}</span>
           </div>
-
           <div style={{ 
             position: 'absolute', 
             top: '15%', 
@@ -147,7 +144,6 @@ export default function TemplatePreview() {
             <img src={cardPhoto} alt={cardName} referrerPolicy="no-referrer" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
 
-          {/* Custom Message Overlay */}
           {showMessage && (
             <div style={{ 
               position: 'absolute', 
