@@ -1,46 +1,68 @@
-# Greetify - Personalized Greeting Cards
+# Greetify - Personalized Greeting Cards 🎁
 
-A modern, responsive web application built with React, Vite, and TypeScript that enables users to create personalized greeting cards and wishes by automatically overlaying their name and profile picture onto beautiful templates.
+Greetify is a premium, high-performance web application that allows users to generate and share personalized greeting cards in seconds. By combining modern web technologies with a sleek glassmorphic design, Greetify enables users to overlay their names, profile photos, and custom messages onto categorized high-quality templates.
 
-## Features
+## ✨ Key Features
 
-- **Authentication:** Simple login flow including Guest access. Captures Name and Profile Picture.
-- **Dynamic Templates:** Categorized image templates with live preview overlays showing the user's name and picture seamlessly integrated.
-- **Premium Tier:** Built-in monetization flow with "Free" and "Premium" badges. Clicking a premium template triggers a beautiful subscription upsell popup.
-- **One-Click Share:** Merges HTML layers into a single high-quality image using `html-to-image` and supports native sharing via the Web Share API.
-- **Stunning UI/UX:** Built with a glassmorphic dark theme, CSS gradients, smooth animations, and responsive layouts.
+### 🔐 Advanced Authentication
+- **Multi-Login Flow:** Supports Google OAuth 2.0, Email-based login, and Guest access.
+- **Session Persistence:** State is managed via Zustand with middleware persistence, ensuring users stay logged in across page reloads.
+- **Dynamic Profile Setup:** Captures user names and profile pictures automatically from Google or allows manual URL setup.
 
-## Tech Stack
+### 🎨 Powerful Personalization
+- **Interactive Editing Toolbar:** Users can customize individual cards without affecting their global profile.
+- **Edit Name:** Change the display name specifically for a single card.
+- **Change Background:** Bring your own template! Users can paste any image URL to replace the default background while keeping the Greetify overlays.
+- **Custom Messages:** Optional glassmorphic text box that can be added, edited, or removed from the card on demand.
 
-- **Framework:** React 19 + TypeScript + Vite
-- **Styling:** Vanilla CSS with custom design tokens and glassmorphism utilities.
-- **State Management:** Zustand
-- **Routing:** React Router DOM
+### 🏠 Home & Discovery
+- **Categorized Templates:** Browse cards by Birthday, Anniversary, Festival, or Love.
+- **Live Grid Preview:** Every template in the grid shows a live, real-time preview of the user's name and photo.
+- **Premium Tier:** Clearly distinguished Free and Premium content with a beautiful subscription upsell flow for locked assets.
+
+### 📤 Seamless Export & Sharing
+- **Pre-generated Assets:** Background processing ensures sharing and downloads are instant, bypassing browser security timeouts.
+- **Native Share API:** Integrated with mobile/desktop share sheets for one-click sharing to WhatsApp, Instagram, and more.
+- **High-Quality Export:** Merges multiple HTML layers into a single high-fidelity PNG using `html-to-image`.
+
+## 🛠️ Tech Stack
+
+- **Core:** React 19 + TypeScript + Vite
+- **Styling:** Vanilla CSS (Custom Design System + Glassmorphism)
+- **State:** Zustand (with Persist Middleware)
+- **Authentication:** @react-oauth/google
 - **Icons:** Lucide React
-- **Image Generation:** html-to-image
+- **Export Logic:** html-to-image
+- **Navigation:** React Router DOM
 
-## Getting Started
+## 🚀 Getting Started
 
-1. Install dependencies:
+1. **Clone & Install:**
    ```bash
+   git clone <your-repo-url>
+   cd ClassPlus
    npm install
    ```
 
-2. Start the development server:
+2. **Environment Variables:**
+   Create a `.env` file in the root and add your Google Client ID:
+   ```env
+   VITE_GOOGLE_CLIENT_ID=your_google_client_id_here
+   ```
+
+3. **Run Dev:**
    ```bash
    npm run dev
    ```
 
-3. Build for production:
-   ```bash
-   npm run build
-   ```
+## 📂 Project Structure
 
-## Folder Structure
+- `src/pages/Home.tsx` - Main dashboard with categorized templates and upsell logic.
+- `src/pages/Login.tsx` - Reorganized unified login (Email/Google) and Guest entry.
+- `src/pages/TemplatePreview.tsx` - Advanced editor with pre-generation logic and sharing tools.
+- `src/store/useStore.ts` - Persistent state management for user sessions.
+- `src/lib/templates.ts` - Template configuration and categorization.
+- `src/index.css` - Central design system with custom CSS variables.
 
-- `src/components/Layout.tsx` - Main layout wrapper with navigation and user profile.
-- `src/pages/Home.tsx` - Template listing, live preview, category filtering, and subscription upsell.
-- `src/pages/Login.tsx` - Authentication screen capturing name and profile picture.
-- `src/pages/TemplatePreview.tsx` - Handles DOM-to-image conversion and native sharing.
-- `src/store/useStore.ts` - Zustand state for user data and premium status.
-- `src/lib/templates.ts` - Mock template data configuration with coordinate placements.
+---
+Built with ❤️ for stunning personalized wishes.
